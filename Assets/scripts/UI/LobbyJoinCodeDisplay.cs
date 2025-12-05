@@ -15,6 +15,9 @@ public class LobbyJoinCodeDisplay : MonoBehaviour
     public bool autoRefresh = true;
     public float refreshInterval = 0.5f;
 
+    int maxRetries = 20;
+    int retryCount = 0;
+
     private void Start()
     {
         Debug.Log("🟢 LobbyJoinCodeDisplay START called");
@@ -90,21 +93,25 @@ public class LobbyJoinCodeDisplay : MonoBehaviour
 
     private IEnumerator AutoRefreshJoinCode()
     {
-        while (true)
+        if (RelayManager.Instance != null)
         {
-            yield return new WaitForSeconds(refreshInterval);
-
-            if (RelayManager.Instance != null)
+            string joinCode = RelayManager.Instance.JoinCode;
+            if (!string.IsNullOrEmpty(joinCode))
             {
-                string joinCode = RelayManager.Instance.JoinCode;
-                if (!string.IsNullOrEmpty(joinCode))
-                {
-                    DisplayJoinCode(joinCode);
-                    Debug.Log($"🔄 Auto-refreshed join code: {joinCode}");
-                    yield break; // Stop checking once we have the code
-                }
+                DisplayJoinCode(joinCode);
+                Debug.Log($"🔄 Auto-refreshed join code: {joinCode}");
+                yield break; // Stop checking once we have the code
             }
         }
+        
+        if(retryCount >= maxRetries)
+        {
+            Debug.Error("Failed to get instance after maximum attempts");
+            yield break;
+        }
+        ++retryCount;
+        Debug.Log("Failed to get join code or RelayManager instance, retrying " + retryCount + "/" + maxRetries);
+        yield return new WaitForSeconds(refreshInterval);
     }
 
     private void OnJoinCodeReceived(string joinCode)
