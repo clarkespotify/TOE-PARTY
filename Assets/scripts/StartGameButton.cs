@@ -4,9 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoadButton : MonoBehaviour
 {
+    [SerializeField] private GameEvent eventChannel;
+
     [Header("Scene Configuration")]
     [Tooltip("Name of the scene to load (e.g., 'playscene', 'arena', 'level2')")]
     public string targetSceneName = "playscene";
+    public GameMode TargetGameMode = GameMode.Impostor;
 
     [Header("Player Setup")]
     public GameObject playerPrefab;
@@ -70,7 +73,6 @@ public class SceneLoadButton : MonoBehaviour
 
     public void OnButtonClicked()
     {
-        Debug.Log($"=== BUTTON CLICKED: Loading '{targetSceneName}' ===");
 
         if (NetworkManager.Singleton == null)
         {
@@ -90,11 +92,6 @@ public class SceneLoadButton : MonoBehaviour
             return;
         }
 
-        if (string.IsNullOrEmpty(targetSceneName))
-        {
-            Debug.LogError("Target scene name is empty!");
-            return;
-        }
 
         // STEP 1: Despawn all lobby player objects
         Debug.Log("Despawning lobby players...");
@@ -117,8 +114,15 @@ public class SceneLoadButton : MonoBehaviour
         NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += OnSceneLoadComplete;
 
         // STEP 4: Load the target scene
-        Debug.Log($"Loading scene: {targetSceneName}...");
-        NetworkManager.Singleton.SceneManager.LoadScene(targetSceneName, LoadSceneMode.Single);
+        switch(TargetGameMode)
+        {
+            case GameMode.Bat:
+                NetworkManager.Singleton.SceneManager.LoadScene(GlobalGameStateManager.Instance.batSceneName, LoadSceneMode.Single);
+                break;
+            case GameMode.Impostor:
+                NetworkManager.Singleton.SceneManager.LoadScene(GlobalGameStateManager.Instance.ImpostorSceneName, LoadSceneMode.Single);
+                break;
+        }
     }
 
     private void OnSceneLoadComplete(string sceneName, LoadSceneMode loadSceneMode, System.Collections.Generic.List<ulong> clientsCompleted, System.Collections.Generic.List<ulong> clientsTimedOut)
@@ -154,6 +158,7 @@ public class SceneLoadButton : MonoBehaviour
 
                     // Instantiate the player prefab at the spawn position
                     GameObject playerInstance = Instantiate(playerPrefab, spawnPosition, spawnRotation);
+                    eventChannel.PlayerSpawned(playerInstance, TargetGameMode);
 
                     // Get NetworkObject component
                     NetworkObject netObj = playerInstance.GetComponent<NetworkObject>();

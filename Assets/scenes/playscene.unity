@@ -2798,7 +2798,7 @@ GameObject:
   - component: {fileID: 295617649}
   - component: {fileID: 295617648}
   - component: {fileID: 295617647}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: FreezeZone
   m_Icon: {fileID: 0}
@@ -4804,7 +4804,7 @@ GameObject:
   - component: {fileID: 529549575}
   - component: {fileID: 529549574}
   - component: {fileID: 529549573}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: FreezeZone
   m_Icon: {fileID: 0}
@@ -4916,7 +4916,7 @@ GameObject:
   - component: {fileID: 536704173}
   - component: {fileID: 536704172}
   - component: {fileID: 536704171}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: FreezeZone
   m_Icon: {fileID: 0}
@@ -7157,7 +7157,7 @@ GameObject:
   - component: {fileID: 744314397}
   - component: {fileID: 744314396}
   - component: {fileID: 744314398}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: FreezeZone
   m_Icon: {fileID: 0}
@@ -10794,7 +10794,7 @@ GameObject:
   - component: {fileID: 1139176461}
   - component: {fileID: 1139176464}
   - component: {fileID: 1139176463}
-  - component: {fileID: 1139176462}
+  - component: {fileID: 1139176465}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -10817,29 +10817,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450653409038056}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1139176462
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1139176460}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1139176463
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10895,6 +10872,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139176460}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &1139176465
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139176460}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1142347436
 PrefabInstance:
@@ -11094,7 +11093,7 @@ GameObject:
   - component: {fileID: 1155233145}
   - component: {fileID: 1155233144}
   - component: {fileID: 1155233146}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11756,7 +11755,7 @@ GameObject:
   - component: {fileID: 1214583126}
   - component: {fileID: 1214583125}
   - component: {fileID: 1214583127}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: FreezeZone
   m_Icon: {fileID: 0}
@@ -12127,7 +12126,7 @@ GameObject:
   - component: {fileID: 1269101105}
   - component: {fileID: 1269101104}
   - component: {fileID: 1269101106}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: FreezeZone
   m_Icon: {fileID: 0}
@@ -17916,7 +17915,7 @@ GameObject:
   - component: {fileID: 1917243762}
   - component: {fileID: 1917243761}
   - component: {fileID: 1917243760}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: FreezeZone
   m_Icon: {fileID: 0}
@@ -19502,7 +19501,8 @@ GameObject:
   - component: {fileID: 2113415180}
   - component: {fileID: 2113415183}
   - component: {fileID: 2113415182}
-  m_Layer: 0
+  - component: {fileID: 2113415184}
+  m_Layer: 3
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19579,6 +19579,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113415179}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &2113415184
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113415179}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2141163130
 GameObject:
@@ -23124,7 +23146,7 @@ GameObject:
   - component: {fileID: 205735213846019212}
   - component: {fileID: 3121308176202297878}
   - component: {fileID: 8798816634197625546}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: FreezeZone
   m_Icon: {fileID: 0}

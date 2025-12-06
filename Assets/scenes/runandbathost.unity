@@ -149,7 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa0bccfd923e194f963abea278cd04d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartGameButton
+  eventChannel: {fileID: 11400000, guid: ada9be164e28c5940b76f11f77820ad1, type: 2}
   targetSceneName: Runandbatscene
+  TargetGameMode: 0
   playerPrefab: {fileID: 5550364946843357195, guid: 9ceb4e2171508854d958eaeb2175336a, type: 3}
   shouldSpawnLobbyManager: 0
 --- !u!4 &83978148

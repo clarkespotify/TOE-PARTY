@@ -1016,6 +1016,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &5288361492445438921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8313913355762669853}
+  m_Layer: 0
+  m_Name: batplacement
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8313913355762669853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5288361492445438921}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5, y: -0.4749999, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5595874162884498492}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5550364946843357195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,6 +1068,7 @@ GameObject:
   - component: {fileID: 4990351051291065732}
   - component: {fileID: 3573149164228348584}
   - component: {fileID: 6200846754351568705}
+  - component: {fileID: 6264408772447859149}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1079,7 +1111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 4089002290
+  GlobalObjectIdHash: 3115878024
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -1111,7 +1143,7 @@ MonoBehaviour:
   gravity: -30
   playerCamera: {fileID: 5926172772056924354}
   normalFOV: 60
-  sprintFOV: 70
+  sprintFOV: 85
   fovTransitionSpeed: 8
   groundCheck: {fileID: 0}
   groundDistance: 0.4
@@ -1332,6 +1364,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSoundboardUI
   uiIndicator: {fileID: 8223533482977078472}
+--- !u!114 &6264408772447859149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550364946843357195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02c27d765d10504d9228fcbd262195c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  bat: {fileID: 0}
+  spawnposition: {fileID: 8313913355762669853}
 --- !u!1 &5566095967244099685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,7 +1613,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.4749999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8313913355762669853}
   m_Father: {fileID: 7985069355667652185}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &5926172772056924354

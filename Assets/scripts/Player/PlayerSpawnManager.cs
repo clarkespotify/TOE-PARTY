@@ -5,6 +5,8 @@ public class PlayerSpawnManager : MonoBehaviour
 {
     public static PlayerSpawnManager Instance { get; private set; }
 
+    [SerializeField] private GameEvent eventChannel;
+
     [Header("Spawn Points")]
     [Tooltip("Assign your spawn point empty GameObjects in order (0 = Player 1, 1 = Player 2, etc.)")]
     public Transform[] spawnPoints;
